@@ -53,14 +53,21 @@ export default function Home() {
   };
 
   const [pieData, setPieData] = useState([
-    ['Task', 'Hours per Day'],
+    ['Field', 'Amount'],
     ['Principal', details.loanAmount],
-    ['Total Amount', totalAmount],
+    ['TotalAmount', totalAmount],
   ]);
 
   const pieOptions = {
-    title: 'Total Amount to Principal Ratio',
-    pieHole: 0.5,
+    pieHole: 0.7,
+    legend: "none",
+    pieSliceText: "none",
+    animation: {
+      duration: 1000,
+      easing: "in",
+      startup: true,
+    },
+    colors: ["#0066ff","#99ccff"]
   }
 
   const [user, setUser] = useState(null);
@@ -127,20 +134,44 @@ export default function Home() {
         <h2 className='font-bold text-2xl'>EMI Calculator</h2>
         <p className='font-bold text-xl'>Calculate your monthly EMI</p>
       </div>
-      <div className='grid gap-8 md:grid-flow-col grid-flow-row'>
+      <div className='grid gap-8 grid-flow-row'>
 
+        <div className='text-center p-4'>
+          <h3 className='font-bold '>
+            Monthly EMI
+            <br />
+            { `₹ ${Math.round(emi).toLocaleString('en-US')} /-`}
+          </h3>
+          <div className='text-center'>
+            <Chart
+              style={{textAlign:'center'}}
+              height={'320px'}
+              chartType="PieChart"
+              loader={<div>Loading Chart</div>}
+              data={pieData}
+              options={pieOptions}
+              rootProps={{ 'data-testid': '3' }}
+            />
+            <div className="absolute left-[50%] top-[50%]">
+              <div className="relative left-[-50%] top-[-50%]">
+                Total Amount <br />
+                ₹ {Math.round(totalAmount).toLocaleString('en-US')}
+              </div>
+              </div>
+          </div>
+        </div>
         <div className='p-4 border rounded-md my-10 border-slate-300 '>
-          <div className='bg-slate-200 px-3 py-2 rounded-md text-center font-bold'>₹ {emi.toLocaleString('en-US')}/mo</div>
+          <div className='bg-slate-200 px-3 py-5 rounded-md text-center font-bold text-xl'>₹ {emi.toLocaleString('en-US')} / mo</div>
           <div className='my-3 grid grid-flow-row gap-3 md:grid-flow-col'>
-            <div className='bg-slate-200 px-3 py-2 rounded-md text-center'>
+            <div className='bg-slate-200 px-3 py-5 rounded-md text-center'>
               Principal - {details.loanAmount.toLocaleString('en-US')}
             </div>
-            <div className='bg-slate-200 px-3 py-2 rounded-md text-center'>
+            <div className='bg-slate-200 px-3 py-5 rounded-md text-center'>
               Interest - {totalInterest.toLocaleString('en-US')}
             </div>
           </div>
           <div>
-            <input className='float-right p-3 bg-slate-200 rounded-md' type="number" name="loanAmount" value={details.loanAmount} onChange={handleChange} />
+            <input className='float-right p-3 outline-slate-300 outline-[0.1px] bg-slate-200 rounded-md md:w-max w-[50%]' type="number" name="loanAmount" value={details.loanAmount} onChange={handleChange} />
             <div>
               <label>Loan Amount</label>
             </div>
@@ -176,28 +207,13 @@ export default function Home() {
           </div>
 
           <div>
-            <input onChange={handleChange} name="rateOfInterest" type="number" value={details.rateOfInterest} className='float-right p-3 outline-slate-300 outline-[0.1px] bg-slate-200 rounded-md' />
+            <input onChange={handleChange} name="rateOfInterest" type="number" value={details.rateOfInterest} className='float-right p-3 outline-slate-300 outline-[0.1px] md:w-max w-[50%] bg-slate-200 rounded-md' />
             <div>
               <label>Rate of Interest</label>
             </div>
             <div>
               <input onChange={handleChange} name='rateOfInterest' type='range' min={1} max={20} value={details.rateOfInterest} className='w-[100%]' />
             </div>
-          </div>
-        </div>
-        <div className='text-center p-4 my-10'>
-          <h3 className='font-bold '>
-            Monthly EMI
-          </h3>
-          <div>
-            <Chart
-              height={'320px'}
-              chartType="PieChart"
-              loader={<div>Loading Chart</div>}
-              data={pieData}
-              options={pieOptions}
-              rootProps={{ 'data-testid': '3' }}
-            />
           </div>
         </div>
       </div>

@@ -61,12 +61,12 @@ function LoanTable({ loanAmount, rateOfInterest, tenure }) {
                 </thead>
                 <tbody className="text-center">
                     {amortizationDetails.map((detail) => (
-                        <tr key={detail.month}>
-                            <td>{detail.month}</td>
+                        <tr className="" key={detail.month}>
+                            <td className="p-3">{detail.month}</td>
                             <td>₹ {Math.round(detail.principal)}</td>
                             <td>₹ {Math.round(detail.monthlyInterest)}</td>
                             <td>₹ {Math.round(detail.balance)}</td>
-                            <td>{detail.interest} %</td>
+                            <td className="p-3">{detail.interest} %</td>
                         </tr>
                     ))}
                 </tbody>
