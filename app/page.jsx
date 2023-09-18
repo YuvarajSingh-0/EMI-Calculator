@@ -97,7 +97,8 @@ export default function Home() {
         body: JSON.stringify(payload)
       }).then(async (res) => {
         const data = await res.json();
-        alert('Saved to DB\nRecord ID:',data.id);
+        console.log(data);
+        alert(`Saved to DB\n\nRecord ID : ${data[0].estimate_id}`);
 
       }).catch(e => {
           console.log(e);
