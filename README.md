@@ -1,34 +1,81 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# EMI Calculator
 
-## Getting Started
+The EMI (Equated Monthly Installment) Calculator is a web application built with Next.js, Tailwind CSS, and other technologies to help you calculate your monthly loan EMI and view a loan amortization table.
 
-First, run the development server:
+## Features
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-```
+- Calculate monthly EMI based on loan amount, tenure (in years), and interest rate.
+- Generate a loan amortization table that shows monthly details of your loan.
+- Easy-to-use web interface with a clean and intuitive design.
+- Responsive layout for seamless use on different devices.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## How to Use
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+1. **Installation**:
+   - Clone this repository to your local machine:
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+     ```bash
+     git clone https://github.com/yuvarajsingh-0/smartneev-assign.git
+     ```
 
-## Learn More
+   - Navigate to the project directory:
 
-To learn more about Next.js, take a look at the following resources:
+     ```bash
+     cd smartneev-assign
+     ```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+   - Install project dependencies:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+     ```bash
+     npm install
+     ```
 
-## Deploy on Vercel
+2. **Run the Application**:
+   - Start the development server:
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+     ```bash
+     npm run dev
+     ```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+   - Open your web browser and access the application at [http://localhost:3000](http://localhost:3000).
+
+3. **Calculate EMI**:
+   - Enter your loan details in the provided input fields:
+     - Loan Amount (in rupees)
+     - Loan Tenure (in years)
+     - Rate of Interest (annual percentage)
+
+4. **View Results**:
+   - A realtime Loan Amortization Table is created each time you change the input values in the above step
+
+5. **Loan Amortization Table**:
+   - The amortization table provides a breakdown of each month's payment, including:  
+     - Month
+     - Principal
+     - Interest
+     - Balance
+     - Interest (%)
+
+6. **Customize and Repeat**:
+   - Modify the input values as needed to explore different loan scenarios.
+
+## Dependencies
+
+This project uses the following key dependencies:
+
+- [Next.js](https://nextjs.org/) - A React framework for building web applications.
+- [Tailwind CSS](https://tailwindcss.com/) - A utility-first CSS framework for designing web interfaces.
+- [react-google-charts](https://github.com/rakannimer/react-google-charts) - React components for Google Charts.
+- [jsonwebtoken](https://www.npmjs.com/package/jsonwebtoken) - An implementation of JSON Web Tokens.
+
+## License
+
+[Specify your project's license if applicable]
+
+## Author
+
+- Yuvaraj Singh N
+- [yuvarajsingh170@gmail.com](mailto:yuvarajsingh170@gmail.com)
+- uv.me (Discord username)
+
+Feel free to contribute to the project, report issues, or suggest improvements. Enjoy using the EMI Calculator!
