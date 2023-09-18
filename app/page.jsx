@@ -67,7 +67,7 @@ export default function Home() {
   const [showLogin, setShowLogin] = useState(false);
   useEffect(() => {
     async function getUser() {
-      const res = await fetch('http://localhost:3000/api/auth/user');
+      const res = await fetch('https://smartneev-assign.vercel.app/api/auth/user');
       const { username, isLoggedIn } = await res.json();
       setUser({ username, isLoggedIn });
     }
@@ -77,7 +77,7 @@ export default function Home() {
 
 
   const handleAddToDB = async () => {
-    const res = await fetch('http://localhost:3000/api/auth/user');
+    const res = await fetch('https://smartneev-assign.vercel.app/api/auth/user');
     const { isLoggedIn } = await res.json();
     if (isLoggedIn) {
       const payload = {
@@ -89,7 +89,7 @@ export default function Home() {
         totalInterest: totalInterest
       }
 
-      fetch('http://localhost:3000/api/add', {
+      fetch('https://smartneev-assign.vercel.app/api/add', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
