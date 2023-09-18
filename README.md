@@ -70,12 +70,12 @@ This project uses the following key dependencies:
 
 ## License
 
-[Specify your project's license if applicable]
+[GNU General Public License v3.0](https://github.com/YuvarajSingh-0/smartneev-assign/blob/master/LICENSE)
 
 ## Author
 
-- Yuvaraj Singh N
+- [Yuvaraj Singh N](https://github.com/yuvarajsingh-0)
 - [yuvarajsingh170@gmail.com](mailto:yuvarajsingh170@gmail.com)
-- uv.me (Discord username)
+- uv.me [Discord username](https://discord.com/users/uv.me)
 
 Feel free to contribute to the project, report issues, or suggest improvements. Enjoy using the EMI Calculator!
