@@ -66,7 +66,7 @@ function LoanTable({ loanAmount, rateOfInterest, tenure }) {
                             <td>₹ {Math.round(detail.principal)}</td>
                             <td>₹ {Math.round(detail.monthlyInterest)}</td>
                             <td>₹ {Math.round(detail.balance)}</td>
-                            <td>{Math.round(detail.interest)} %</td>
+                            <td>{detail.interest} %</td>
                         </tr>
                     ))}
                 </tbody>
