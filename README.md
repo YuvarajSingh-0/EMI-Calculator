@@ -15,13 +15,13 @@ The EMI (Equated Monthly Installment) Calculator is a web application built with
    - Clone this repository to your local machine:
 
      ```bash
-     git clone https://github.com/yuvarajsingh-0/smartneev-assign.git
+     git clone https://github.com/yuvarajsingh-0/EMI-Calculator.git
      ```
 
    - Navigate to the project directory:
 
      ```bash
-     cd smartneev-assign
+     cd EMI-Calculator
      ```
 
    - Install project dependencies:
