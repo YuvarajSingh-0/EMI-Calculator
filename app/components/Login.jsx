@@ -7,7 +7,7 @@ export default function Login({ setShowLogin }) {
         }
 
         try {
-            const res = await fetch('https://smartneev-assign.vercel.app/api/auth/login', {
+            const res = await fetch('/api/auth/login', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
@@ -16,6 +16,7 @@ export default function Login({ setShowLogin }) {
             })
             const data = await res.json()
             alert(data.message);
+            setShowLogin(false);
             console.log(data);
         } catch (e) {
             alert('Error');
