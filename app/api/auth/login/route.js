@@ -3,11 +3,11 @@ import { serialize } from 'cookie';
 import jwt from 'jsonwebtoken';
 const MAX_AGE=60*60*24*7;
 export async function POST(req){
-    await sql`CREATE TABLE IF NOT EXISTS USERS( user_id SERIAL PRIMARY KEY, name TEXT NOT NULL, email TEXT NOT NULL UNIQUE, password TEXT NOT NULL)`;
+    await sql`CREATE TABLE IF NOT EXISTS USERS( user_id SERIAL PRIMARY KEY, email TEXT NOT NULL UNIQUE, password TEXT NOT NULL)`;
     const body=await req.json();
-    const {username,password}=body;
+    const {email,password}=body;
     // console.log(username,password);
-    const res=await sql`SELECT * FROM USERS WHERE email=${username} AND password=${password}`;
+    const res=await sql`SELECT * FROM USERS WHERE email=${email} AND password=${password}`;
     if(res.rows.length==0){
         return new Response(JSON.stringify({message:"Invalid username or password"}),{
             status:401,
@@ -15,7 +15,7 @@ export async function POST(req){
     }
 
     const secret=process.env.JWT_SECRET || "";
-    const token=jwt.sign({username},secret,{expiresIn:MAX_AGE});
+    const token=jwt.sign({email},secret,{expiresIn:MAX_AGE});
     const serialized=serialize("outjwt",token,{
         httpOnly:true,
         secure:process.env.NODE_ENV==="production",

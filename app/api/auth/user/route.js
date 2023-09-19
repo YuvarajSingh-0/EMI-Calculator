@@ -7,9 +7,9 @@ export async function GET(req) {
     const secret = process.env.JWT_SECRET || "";
     try{
         if(token){
-            const { username } = jwt.verify(token.value, secret);
+            const { email } = jwt.verify(token.value, secret);
             const response={
-                username:username,
+                email:email,
                 isLoggedIn:true
             }
             return new Response(JSON.stringify(response));
