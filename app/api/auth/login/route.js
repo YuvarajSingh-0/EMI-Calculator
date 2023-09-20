@@ -1,7 +1,7 @@
 import {sql} from '@vercel/postgres'
 import { serialize } from 'cookie';
 import jwt from 'jsonwebtoken';
-const MAX_AGE=60*60*24*7;
+const MAX_AGE="14h";
 export async function POST(req){
     await sql`CREATE TABLE IF NOT EXISTS USERS( user_id SERIAL PRIMARY KEY, email TEXT NOT NULL UNIQUE, password TEXT NOT NULL)`;
     const body=await req.json();

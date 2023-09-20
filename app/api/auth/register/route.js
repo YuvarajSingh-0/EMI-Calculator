@@ -1,4 +1,5 @@
-import sql from '@vercel/postgres'
+import {sql} from '@vercel/postgres'
+
 export async function POST(req) {
     await sql`CREATE TABLE IF NOT EXISTS USERS( user_id SERIAL PRIMARY KEY, email TEXT NOT NULL UNIQUE, password TEXT NOT NULL)`;
     const body = await req.json();

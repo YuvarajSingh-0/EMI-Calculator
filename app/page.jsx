@@ -144,6 +144,7 @@ export default function Home() {
           </h3>
           <div className='text-center'>
             <Chart
+            
               style={{textAlign:'center'}}
               height={'320px'}
               chartType="PieChart"

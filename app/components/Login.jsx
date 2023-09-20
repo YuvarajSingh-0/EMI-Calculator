@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 export default function Login({ setShowLogin }) {
     async function handleSubmit(e) {
         e.preventDefault();
@@ -31,8 +33,14 @@ export default function Login({ setShowLogin }) {
                     <input name="email" type="email" placeholder="Email" className="block my-2 p-4 outline-zinc-200 rounded-md shadow-xl" />
                     <input name="password" required type="password" placeholder="Password" className="block my-2 p-4 outline-zinc-200 rounded-md shadow-xl" />
                 </div>
-                <button className="bg-blue-700 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded-md shadow-xl" type="submit">Login</button>
-                <button className="bg-rose-700 float-right hover:bg-blue-600 text-white font-bold py-2 px-4 rounded-md shadow-xl " onClick={() => setShowLogin(false)}>Close</button>
+                <div className="grid grid-flow-col gap-3">
+                    <button className="bg-blue-700 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded-md shadow-xl" type="submit">Login</button>
+                    <button className="bg-rose-700 hover:bg-rose-600 text-white font-bold py-2 px-4 rounded-md shadow-xl " onClick={() => setShowLogin(false)}>Close</button>
+                </div>
+                <br />
+                <Link href="/register">
+                    <button className="bg-orange-700 w-[100%] hover:bg-orange-600 text-white font-bold py-2 px-10 rounded-md shadow-xl">Sign Up</button>
+                </Link>
             </form>
         </div>
 
