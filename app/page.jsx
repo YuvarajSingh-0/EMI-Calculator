@@ -3,6 +3,8 @@ import { useEffect, useState } from 'react'
 import LoanTable from './components/LoanTable'
 import Chart from 'react-google-charts'
 import Login from './components/Login'
+import { getCookie, setCookie } from 'cookies-next'
+
 export default function Home() {
 
   const [details, setDetails] = useState({
@@ -117,6 +119,16 @@ export default function Home() {
     }
   }
 
+  const handleLogout = async() => {
+    try{
+      await fetch("/api/auth/logout");
+      setUser({ username: null, isLoggedIn: false });
+    }
+    catch(e){
+      alert('Error')
+      console.log(e)
+    }
+  }
 
   return (
     <main>
@@ -128,6 +140,9 @@ export default function Home() {
       <div className="text-right">
         <button onClick={handleAddToDB} className="bg-blue-700 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded-md">
           Save to DB
+        </button>
+        <button onClick={handleLogout} className="bg-blue-700 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded-md ml-2">
+          Logout
         </button>
       </div>
       <div className='text-center py-6'>
